@@ -1,0 +1,385 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="GetExchangeRatesMoex" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="pathUrlMoex" Type="InArgument(x:String)" />
+    <x:Property Name="pathExcel" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>1242,2911</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.UIAutomationNext.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers.Scope</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="GetExchangeRatesMoex" sap:VirtualizedContainerService.HintSize="592,2846" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Московская Биржа" sap:VirtualizedContainerService.HintSize="530,2735" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="ef5b75b8-83bc-4322-935b-b5f56735305b" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence sap:VirtualizedContainerService.HintSize="496,2518" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Name="dataTable" />
+              <Variable x:TypeArguments="x:String" Name="currentRange" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'SVG'" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ef5b75b8-83bc-4322-935b-b5f56735305b" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.moex.com/" CvType="Icon" DesignTimeRectangle="1699, 205, 24, 24" DesignTimeScaleFactor="1" ElementType="Icon" FriendlyName="'SVG'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;header&amp;gt;div&amp;gt;div&amp;gt;button&amp;gt;svg' parentid='__layout' tag='svg' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='__layout' tag='svg' class='stroke-icon hoverable' aaname='' /&gt;" Guid="bd6fbf6f-6800-447e-bdef-1c037fa07dfc" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABKSURBVEhLY/jy9cd/euJRC6mORy2kOsaw0M3d87+EpDRVMMgsdPMH3kJa41ELqY4HPtGMplJK8Qi0cDSVUopHLaQ6HrWQyvjHfwA9Hq83U8FmMQAAAABJRU5ErkJggg==" InformativeScreenshot="04877beeddcc57eb1995c31d40b9d3ca.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Московская Биржа' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.PointOffset>
+                    <uix:PointOffset Position="BottomLeft" X="13" Y="-12" />
+                  </uix:TargetAnchorable.PointOffset>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Срочный рынок'" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ef5b75b8-83bc-4322-935b-b5f56735305b" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.moex.com/" CvTextArgument="Cpo4Hbln pbIHOK" CvType="Text" DesignTimeRectangle="588, 287, 153, 26" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Срочный рынок'" FullSelectorArgument="&lt;webctrl aaname='   Срочный рынок   ' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;header&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;a' parentid='__layout' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='   Срочный рынок   ' type='' parentid='__layout' tag='A' class='burger-left-menu__link burger-left-menu__link--inner' check:innerText='Срочный рынок' /&gt;" Guid="ce2e8f83-fc73-4efa-bf23-d3770ea0b5ba" ImageBase64="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" InformativeScreenshot="ee23dffd4055b5fa64b7d8e6fcd27e35.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Московская Биржа' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Индикативные курсы'" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ef5b75b8-83bc-4322-935b-b5f56735305b" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.moex.com/ru/derivatives/" CvTextArgument="+ VHnVKaTNBHble KypCbl" CvType="Text" DesignTimeRectangle="238, 945, 142, 17" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Индикативные курсы'" FullSelectorArgument="&lt;webctrl aaname='Индикативные курсы' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Индикативные курсы' tag='SPAN' type='' class='' check:innerText='Индикативные курсы' /&gt;" Guid="491931cc-8230-4afe-8eb9-6a0f2ce8b375" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJIAAAAVCAYAAACtzrfuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUdSURBVGhD7Vi9axtJFL8/Q8L/g6RKRIUhBwsqbFwZu1jUCBM4G0PQXZGgxlgQoxTGCgTFRewr/FEcYuHAKoJVGKkxUmFQ4ECGgFwEVBi04GIhxe/ezOzHzO7asnJyINz8YJFn9s28j/nNe2/9CzQ0ZgBNJI2ZQBNJYybQRNKYCSQijdB4MYfEbs8de7Bx/iqDRHIOe+FXGhouJhLJuazCSGeQ0kTSeAATiNRHfSGD9b8t7GkiaTyAB4k0PCogYZ5giJ5CpJG1hsQLi1Z4EGuLljTDZGiN8khruruqLqdXg8FkvLmvForJNTS+iiFssoGR+miAMQ3HV4coLTzj+6Z+3UD90uZisXrp4baH9/R89ueEn/K6rLmN8xsuPNnvyP4Bwv7itof6b895ppftDyOsc3xZw2J6A8f/2HA6VaTSZZzfui8ZnA52qIIwf8XaQ5xb2zBzzJ9nMCsWBneuLINkRyK3hNL7Ho8vQ8RmDzF+3k+k2xZep5ewd+XQ4DuJJMmEx6qRQxybeRiGNCcbexeQiFkDm2xL5rFz4Qb/5oRkCzj+IoYccYcamnMutpEySK8/J/wM/KD+sEwH/a7PRxP9fiyRHNJjkD9/DYU/NxbWKdb1z/ytAlknu2ycRNd8FYEqBsXMPB26YyJa83ckjA/0xl1L/izudjD+RhPfhmhsUptS6Qi9YTtsIiHtV2qKuM6ASA7aFUnhExOJvUu9auFMNtwz9pqRiPb+0yVRCI5tY2wPcFycoxIc6J9IJB5EOrxPspzwM/BjhLOXwUFN9JvvTz54T/o51t0bLvs7/lT2D1uAxXsOxn4w48HTOWAkIjsPfBIJDE+pahg1dAUTuL3LR5K9ySq6fOTiywmWk5TFiCvcjlVWcQKMrztoX0tEkvxh2bnB9D+aSJ8/cOaf+YIxRJIUeM93Eemug620yCbKDeDG5rFI5SubI1JvWpLDNrrv15AlndmFFSyvrmA+reqfRCRWtvlFUeSEn7JP85uH6LuJb6LfYZ2jJmX1DHY6TuTixO3j+y6ByxLhF3MUB9pr3ZKPnXDbRInW8ixCJDGlzByOOYdkY+x7Ccp5UMz7+26rExPbKJHenlCZoVvosloghkiKAfdkpM2mLxNeI4zs0C+RhUoHu1BRIom0K8qsFMSrGtV0casEKGVTRno0kXr0610URS6ckYDBxxWkyi2eVSb6HdEZvJd945mgKF+M+8F1kq0N6tPYupT7dwDKZm8y/IDP9vNIvGz6PQ5f+18zkkxuyoqJJGW/mNhGicQ+9Rdq6CsZdHoi9d/l/d6CIZZIZgFmehttt/mLEikwlvczXhApYxo+kRwMm2VK+48l0gpMMxNcFEUunkjehZiaSLz3yfPeR/Et0pvQmMq315vIUHW6LYeSnQk8E9H+9Mh7CCJJPZIjeiSD7OB6p+qRqArsLgmixsQ2SiTKAlsXCosI0xBJyCopW3mEAdxIGsuH9hCRWBC7b+nGkV7mdv/jBi9niVwBW1YLByEi308kWuP3FN6cJxe1ffqvNmk99UilU9HbqYdCUL6WCnh92vcziYyITvrwYIddZJnah+iNEukq2tLR8bXFKuqVgogV2WNWmhgyUnmY9NUm+ZM1a2izL8SY2EpEmhVU0imIO1yNmWB4RCX4jfdxJBAl/tPhCYjUxwE1vwdX7lDGqIWtVbrhP8Kz/xXYvwFECZXxkxNJ44fBL6UZzP8RfNh40ETS+OmgiaQxE2giacwEmkgaMwDwL1pS4ehL7/6VAAAAAElFTkSuQmCC" InformativeScreenshot="410021a5f707d595e5f2d96db23fb1a4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Срочный рынок — Московская Биржа | Рынки' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NSelectItem DelayBefore="1" DisplayName="Select Item 'USD/RUB -'" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NSelectItem_4" Item="USD/RUB - Доллар США к российскому рублю" ScopeIdentifier="ef5b75b8-83bc-4322-935b-b5f56735305b" Version="V3">
+              <uix:NSelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="50">
+                  <x:String>Выберите валюты:USD/RUB - Доллар США к российскому рублю</x:String>
+                  <x:String>CAD/RUB - Канадский доллар к российскому рублю</x:String>
+                  <x:String>CAD/RUB - Канадский доллар к российскому рублю</x:String>
+                  <x:String>CAD/RUB - Канадский доллар к российскому рублю</x:String>
+                  <x:String>CHF/RUB - Швейцарский франк к российскому рублю</x:String>
+                  <x:String>CHF/RUB - Швейцарский франк к российскому рублю</x:String>
+                  <x:String>CHF/RUB - Швейцарский франк к российскому рублю</x:String>
+                  <x:String>CNY/RUB - Китайский юань к российскому рублю</x:String>
+                  <x:String>CNY/RUB - Китайский юань к российскому рублю</x:String>
+                  <x:String>CNY/RUB - Китайский юань к российскому рублю</x:String>
+                  <x:String>EUR/RUB - Евро к российскому рублю</x:String>
+                  <x:String>EUR/RUB - Евро к российскому рублю</x:String>
+                  <x:String>EUR/RUB - Евро к российскому рублю</x:String>
+                  <x:String>GBP/RUB - Британский фунт к российскому рублю</x:String>
+                  <x:String>GBP/RUB - Британский фунт к российскому рублю</x:String>
+                  <x:String>GBP/RUB - Британский фунт к российскому рублю</x:String>
+                  <x:String>HKD/RUB - Гонконгский доллар к российскому рублю</x:String>
+                  <x:String>HKD/RUB - Гонконгский доллар к российскому рублю</x:String>
+                  <x:String>HKD/RUB - Гонконгский доллар к российскому рублю</x:String>
+                  <x:String>INR/RUB – Индийская рупия к российскому рублю</x:String>
+                  <x:String>INR/RUB – Индийская рупия к российскому рублю</x:String>
+                  <x:String>INR/RUB – Индийская рупия к российскому рублю</x:String>
+                  <x:String>JPY/RUB - Японская йена к российскому рублю</x:String>
+                  <x:String>JPY/RUB - Японская йена к российскому рублю</x:String>
+                  <x:String>JPY/RUB - Японская йена к российскому рублю</x:String>
+                  <x:String>TRY/RUB - Турецкая лира к российскому рублю</x:String>
+                  <x:String>TRY/RUB - Турецкая лира к российскому рублю</x:String>
+                  <x:String>TRY/RUB - Турецкая лира к российскому рублю</x:String>
+                  <x:String>UAH/RUB - Украинская гривна к российскому рублю</x:String>
+                  <x:String>UAH/RUB - Украинская гривна к российскому рублю</x:String>
+                  <x:String>UAH/RUB - Украинская гривна к российскому рублю</x:String>
+                  <x:String>USD/CAD - Доллар США к канадскому доллару</x:String>
+                  <x:String>USD/CAD - Доллар США к канадскому доллару</x:String>
+                  <x:String>USD/CAD - Доллар США к канадскому доллару</x:String>
+                  <x:String>USD/CHF - Доллар США к швейцарскому франку</x:String>
+                  <x:String>USD/CHF - Доллар США к швейцарскому франку</x:String>
+                  <x:String>USD/CHF - Доллар США к швейцарскому франку</x:String>
+                  <x:String>USD/CNY - Доллар США к китайскому юаню</x:String>
+                  <x:String>USD/CNY - Доллар США к китайскому юаню</x:String>
+                  <x:String>USD/CNY - Доллар США к китайскому юаню</x:String>
+                  <x:String>USD/HKD - Доллар США к гонконгскому доллару</x:String>
+                  <x:String>USD/HKD - Доллар США к гонконгскому доллару</x:String>
+                  <x:String>USD/HKD - Доллар США к гонконгскому доллару</x:String>
+                  <x:String>USD/INR - Доллар США к индийской рупии</x:String>
+                  <x:String>USD/INR - Доллар США к индийской рупии</x:String>
+                  <x:String>USD/INR - Доллар США к индийской рупии</x:String>
+                  <x:String>USD/JPY - Доллар США к японской йене</x:String>
+                  <x:String>USD/JPY - Доллар США к японской йене</x:String>
+                  <x:String>USD/JPY - Доллар США к японской йене</x:String>
+                  <x:String>USD/RUB - Доллар США к российскому рублю</x:String>
+                </scg:List>
+              </uix:NSelectItem.Items>
+              <uix:NSelectItem.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.moex.com/ru/derivatives/currency-rate.aspx?currency=USD%2FRUB" CvElementArea="660, 656, 607, 40" CvTextArea="661, 665, 313, 18" CvTextArgument="USD/RUB - Aonnap CWA K poccMnCKoMy py6NIO" CvType="InputBox" DesignTimeRectangle="663, 656, 600, 40" DesignTimeScaleFactor="1" FriendlyName="'USD/RUB -'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div' parentid='app' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='app' tag='DIV' class='ui-select__activator -selected' aaname='' check:innerText='USD/RUB - Доллар США к российскому рублю' /&gt;" Guid="3b04c0d5-847f-4a4a-8a85-2ae4818e6aa8" InformativeScreenshot="ba84299b336ec71f10a981ba6d804304.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Индикативные курсы валют — Московская Биржа | Рынки' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+              </uix:NSelectItem.Target>
+            </uix:NSelectItem>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Показать'" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ef5b75b8-83bc-4322-935b-b5f56735305b" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.moex.com/ru/derivatives/currency-rate.aspx?currency=USD%2FRUB" CvElementArea="1069, 521, 123, 49" CvTextArea="1087, 538, 87, 14" CvTextArgument="NOKA3ATb" CvType="Button" DesignTimeRectangle="1088, 536, 86, 20" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Показать'" FullSelectorArgument="&lt;webctrl class='ui-button__label' parentid='app' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ui-button__label' parentid='app' tag='SPAN' type='' aaname=' Показать ' check:innerText='ПОКАЗАТЬ' /&gt;" Guid="ad206061-febf-479e-97c0-54fcef7b7ad6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFoAAAAYCAYAAAB6OOplAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH4SURBVGhD7VTLTQJQEPRiYmXGMoy1GMvQi5ahZdABDXDj9GQCE4dh3gMhPD3sJhPC/t7s7MJNu71rheujhJ6EEnoSSuhJKKEnoYSehH2hP7/a0JbL1u4f9hrEOnz3HNShHvb69uN/fGpttTr0E6zrvU0sFtsetMSBeH5pbb0+zKF/ZKjpzTLAZUKrSG6em8h5fSINHwwCQAiPjzhAfM8HuBTnOF1oJ8hhnRgJY1AMDJ8Orn0SOb7nfRV8A+a8NI5e9JGv8iJOWS4wEnOq0Nx+ujTGdFAndwpZFyUJl5DeJzgLLS0P+DdCJx+RiLiPlzgSj3zwmS43QZfjc5ADlgAOyEuHorkwzpBibvAjrvkbnC90LxdQIhQmkesNqfnMSRwUvGJa4sUc9hgtT/n+RmhY4Pg3F62W6gHvn3om6EX7r8WFpfDpVzV6rxdjPx6H1Fz+H51IpgednAqSLoqiJHN+Du1NIdSX7FQxR7H07g7nC62PeT5F6uWTBPv6BXBRPdN89PB6Dqx+ztYz5Qokvsdi5O18NjhfaICNk/ljPXJpKT0emo+cY1eKGHJGoqWlAKMajSULvC8TGkhic0DN6xFXsRB//9j288EJctF4ulblwHjiD6Rl9/h6zA1vae4O+0IXroYSehJK6EkooSehhJ6EEnoSSugpuGvf/znJ2CVLNVIAAAAASUVORK5CYII=" InformativeScreenshot="b96ce6101c72c43d41b6536e8ef724a2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Индикативные курсы валют — Московская Биржа | Рынки' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArgument="NOKA3ATb" CvType="Text" DesignTimeRectangle="1071, 524, 120, 44" ElementType="Button" FriendlyName="'Показать'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='dateTimeRowButton ui-button -primary -normal' aaname=' Показать ' check:innerText='ПОКАЗАТЬ' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHwAAAAwCAYAAADThB6pAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJjSURBVHhe7ZTBTWQxEET3grSRIcJAGwsiDLjshsFmAEcyIAFunAwlVKLVU/YMDCN9UdXSE8Ju+7f72fNr3D+M4EOEm/Eh/Ox3+MlEuBkRbkaEmxHhZkS4GRFuRoSbEeFmRLgZEW5GhJsR4WZEuBkRbkaEm3Ey4Xf/xzKensY4v9i/Dv/3HKzDesTN7cf45Z8xnp93xwnXzb5NHh/f92CoGsjV9RgvL7s5HF8F1szOcio2I7zK6tFzVZP6etU8jCEgAkL6/KoGXIKeD3g5eo22wnuj2PTeIDYODUfjMVYF1H1Uk/i9vm+F30D0uuo89uIY6611kUMuGVhJtRTO16BeHudqw3uTDmlal6MEKtT3Cc/CUJcIRPhbVOFqjKiG9DG+zJVE1oO/6iUr6iXp52ANuAyoAXnqwtZcBM+g5npgHPM1/1g2IXyWC2pDKEg1adbsms8cVUOFr5qh6mIO91hdolrvZ4QjZjV+lU0IXwlQzZo1adacvr/aU1FfeP/16IJ5AdSvzOp7sznux0ta1xzDJoSvmqUO3ptUxagXRjkqen2dujeF1DEVh0pdzanvfgebEF4P3fMpa5bPZnDf/iJ4YWZR87FHX8/G13GebRa1VqDq3TfHuns9x7IJ4YAHVNEPPWuSuhyzOmo+cva9WswhZyVPXQ6wWlPnVKi6j2EzwoGSzkbXvFkDqzTM//33vl8XQFhLnVevt9bAeVU/UJduVm+f64Fv1dzv4GTCwzaJcDMi3IwINyPCzYhwMyLcjAg3I8LNiHAzItyMCDcjws2IcDMi3IwINyPCzdgRHiyIcCsexiv4nSOVMEr46gAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NExtractData AppendResults="False" ContinueOnError="True" DelayAfter="1" DelayBefore="1" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='Дата' ReferenceName='Дата' ReferenceIdx='0'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' IsDeleted='true' Name='Курс промежуточного клиринга Значение' ReferenceName='Курс промежуточного клиринга Значение' ReferenceIdx='1'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' IsDeleted='true' Name='Курс промежуточного клиринга Время' ReferenceName='Курс промежуточного клиринга Время' ReferenceIdx='2'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='Курс' ReferenceName='Курс основного клиринга Значение' ReferenceIdx='3'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='Время' ReferenceName='Курс основного клиринга Время' ReferenceIdx='4'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Дата' attr='fulltext' /&gt;&lt;column name='Курс промежуточного клиринга Значение' attr='fulltext' /&gt;&lt;column name='Курс промежуточного клиринга Время' attr='fulltext' /&gt;&lt;column name='Курс основного клиринга Значение' attr='fulltext' /&gt;&lt;column name='Курс основного клиринга Время' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="ef5b75b8-83bc-4322-935b-b5f56735305b" Version="V3">
+              <uix:NExtractData.DataTable>
+                <InOutArgument x:TypeArguments="sd:DataTable">
+                  <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">dataTable</CSharpReference>
+                </InOutArgument>
+              </uix:NExtractData.DataTable>
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="663, 386, 600, 545" DesignTimeScaleFactor="1" FriendlyName="'Дата Курс'" FullSelectorArgument="&lt;webctrl parentid='app' tag='TABLE' /&gt;" Guid="063a71f1-bf4a-449b-96df-0ed71d145080" InformativeScreenshot="5a051a15025a99812844cee9e1cdc29d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Индикативные курсы валют — Московская Биржа | Рынки' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NExtractData.Target>
+            </uix:NExtractData>
+            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">currentRange</CSharpReference>
+                </OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">A1</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SaveDataTableToExcel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\\SaveDataTableToExcel.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="pathExcel">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">pathExcel</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="dataTable">
+                  <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">dataTable</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="currentRange">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">currentRange</CSharpValue>
+                </InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <uix:NSelectItem DelayBefore="1" DisplayName="Select Item 'USD/RUB -'" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NSelectItem_5" Item="JPY/RUB - Японская йена к российскому рублю" ScopeIdentifier="ef5b75b8-83bc-4322-935b-b5f56735305b" Version="V3">
+              <uix:NSelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="50">
+                  <x:String>Выберите валюты:USD/RUB - Доллар США к российскому рублю</x:String>
+                  <x:String>CAD/RUB - Канадский доллар к российскому рублю</x:String>
+                  <x:String>CAD/RUB - Канадский доллар к российскому рублю</x:String>
+                  <x:String>CAD/RUB - Канадский доллар к российскому рублю</x:String>
+                  <x:String>CHF/RUB - Швейцарский франк к российскому рублю</x:String>
+                  <x:String>CHF/RUB - Швейцарский франк к российскому рублю</x:String>
+                  <x:String>CHF/RUB - Швейцарский франк к российскому рублю</x:String>
+                  <x:String>CNY/RUB - Китайский юань к российскому рублю</x:String>
+                  <x:String>CNY/RUB - Китайский юань к российскому рублю</x:String>
+                  <x:String>CNY/RUB - Китайский юань к российскому рублю</x:String>
+                  <x:String>EUR/RUB - Евро к российскому рублю</x:String>
+                  <x:String>EUR/RUB - Евро к российскому рублю</x:String>
+                  <x:String>EUR/RUB - Евро к российскому рублю</x:String>
+                  <x:String>GBP/RUB - Британский фунт к российскому рублю</x:String>
+                  <x:String>GBP/RUB - Британский фунт к российскому рублю</x:String>
+                  <x:String>GBP/RUB - Британский фунт к российскому рублю</x:String>
+                  <x:String>HKD/RUB - Гонконгский доллар к российскому рублю</x:String>
+                  <x:String>HKD/RUB - Гонконгский доллар к российскому рублю</x:String>
+                  <x:String>HKD/RUB - Гонконгский доллар к российскому рублю</x:String>
+                  <x:String>INR/RUB – Индийская рупия к российскому рублю</x:String>
+                  <x:String>INR/RUB – Индийская рупия к российскому рублю</x:String>
+                  <x:String>INR/RUB – Индийская рупия к российскому рублю</x:String>
+                  <x:String>JPY/RUB - Японская йена к российскому рублю</x:String>
+                  <x:String>JPY/RUB - Японская йена к российскому рублю</x:String>
+                  <x:String>JPY/RUB - Японская йена к российскому рублю</x:String>
+                  <x:String>TRY/RUB - Турецкая лира к российскому рублю</x:String>
+                  <x:String>TRY/RUB - Турецкая лира к российскому рублю</x:String>
+                  <x:String>TRY/RUB - Турецкая лира к российскому рублю</x:String>
+                  <x:String>UAH/RUB - Украинская гривна к российскому рублю</x:String>
+                  <x:String>UAH/RUB - Украинская гривна к российскому рублю</x:String>
+                  <x:String>UAH/RUB - Украинская гривна к российскому рублю</x:String>
+                  <x:String>USD/CAD - Доллар США к канадскому доллару</x:String>
+                  <x:String>USD/CAD - Доллар США к канадскому доллару</x:String>
+                  <x:String>USD/CAD - Доллар США к канадскому доллару</x:String>
+                  <x:String>USD/CHF - Доллар США к швейцарскому франку</x:String>
+                  <x:String>USD/CHF - Доллар США к швейцарскому франку</x:String>
+                  <x:String>USD/CHF - Доллар США к швейцарскому франку</x:String>
+                  <x:String>USD/CNY - Доллар США к китайскому юаню</x:String>
+                  <x:String>USD/CNY - Доллар США к китайскому юаню</x:String>
+                  <x:String>USD/CNY - Доллар США к китайскому юаню</x:String>
+                  <x:String>USD/HKD - Доллар США к гонконгскому доллару</x:String>
+                  <x:String>USD/HKD - Доллар США к гонконгскому доллару</x:String>
+                  <x:String>USD/HKD - Доллар США к гонконгскому доллару</x:String>
+                  <x:String>USD/INR - Доллар США к индийской рупии</x:String>
+                  <x:String>USD/INR - Доллар США к индийской рупии</x:String>
+                  <x:String>USD/INR - Доллар США к индийской рупии</x:String>
+                  <x:String>USD/JPY - Доллар США к японской йене</x:String>
+                  <x:String>USD/JPY - Доллар США к японской йене</x:String>
+                  <x:String>USD/JPY - Доллар США к японской йене</x:String>
+                  <x:String>USD/RUB - Доллар США к российскому рублю</x:String>
+                </scg:List>
+              </uix:NSelectItem.Items>
+              <uix:NSelectItem.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.moex.com/ru/derivatives/currency-rate.aspx?currency=USD%2FRUB" CvElementArea="660, 656, 607, 40" CvTextArea="661, 665, 313, 18" CvTextArgument="USD/RUB - Aonnap CWA K poccMnCKoMy py6NIO" CvType="InputBox" DesignTimeRectangle="663, 656, 600, 40" DesignTimeScaleFactor="1" FriendlyName="'USD/RUB -'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div' parentid='app' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='app' tag='DIV' class='ui-select__activator -selected' aaname='' check:innerText='USD/RUB - Доллар США к российскому рублю' /&gt;" Guid="3b04c0d5-847f-4a4a-8a85-2ae4818e6aa8" InformativeScreenshot="ba84299b336ec71f10a981ba6d804304.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Индикативные курсы валют — Московская Биржа | Рынки' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+              </uix:NSelectItem.Target>
+            </uix:NSelectItem>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Показать'" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ef5b75b8-83bc-4322-935b-b5f56735305b" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.moex.com/ru/derivatives/currency-rate.aspx?currency=USD%2FRUB" CvElementArea="1069, 521, 123, 49" CvTextArea="1087, 538, 87, 14" CvTextArgument="NOKA3ATb" CvType="Button" DesignTimeRectangle="1088, 536, 86, 20" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Показать'" FullSelectorArgument="&lt;webctrl class='ui-button__label' parentid='app' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ui-button__label' parentid='app' tag='SPAN' type='' aaname=' Показать ' check:innerText='ПОКАЗАТЬ' /&gt;" Guid="ad206061-febf-479e-97c0-54fcef7b7ad6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFoAAAAYCAYAAAB6OOplAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH4SURBVGhD7VTLTQJQEPRiYmXGMoy1GMvQi5ahZdABDXDj9GQCE4dh3gMhPD3sJhPC/t7s7MJNu71rheujhJ6EEnoSSuhJKKEnoYSehH2hP7/a0JbL1u4f9hrEOnz3HNShHvb69uN/fGpttTr0E6zrvU0sFtsetMSBeH5pbb0+zKF/ZKjpzTLAZUKrSG6em8h5fSINHwwCQAiPjzhAfM8HuBTnOF1oJ8hhnRgJY1AMDJ8Orn0SOb7nfRV8A+a8NI5e9JGv8iJOWS4wEnOq0Nx+ujTGdFAndwpZFyUJl5DeJzgLLS0P+DdCJx+RiLiPlzgSj3zwmS43QZfjc5ADlgAOyEuHorkwzpBibvAjrvkbnC90LxdQIhQmkesNqfnMSRwUvGJa4sUc9hgtT/n+RmhY4Pg3F62W6gHvn3om6EX7r8WFpfDpVzV6rxdjPx6H1Fz+H51IpgednAqSLoqiJHN+Du1NIdSX7FQxR7H07g7nC62PeT5F6uWTBPv6BXBRPdN89PB6Dqx+ztYz5Qokvsdi5O18NjhfaICNk/ljPXJpKT0emo+cY1eKGHJGoqWlAKMajSULvC8TGkhic0DN6xFXsRB//9j288EJctF4ulblwHjiD6Rl9/h6zA1vae4O+0IXroYSehJK6EkooSehhJ6EEnoSSugpuGvf/znJ2CVLNVIAAAAASUVORK5CYII=" InformativeScreenshot="b96ce6101c72c43d41b6536e8ef724a2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Индикативные курсы валют — Московская Биржа | Рынки' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArgument="NOKA3ATb" CvType="Text" DesignTimeRectangle="1071, 524, 120, 44" ElementType="Button" FriendlyName="'Показать'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='dateTimeRowButton ui-button -primary -normal' aaname=' Показать ' check:innerText='ПОКАЗАТЬ' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHwAAAAwCAYAAADThB6pAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJjSURBVHhe7ZTBTWQxEET3grSRIcJAGwsiDLjshsFmAEcyIAFunAwlVKLVU/YMDCN9UdXSE8Ju+7f72fNr3D+M4EOEm/Eh/Ox3+MlEuBkRbkaEmxHhZkS4GRFuRoSbEeFmRLgZEW5GhJsR4WZEuBkRbkaEm3Ey4Xf/xzKensY4v9i/Dv/3HKzDesTN7cf45Z8xnp93xwnXzb5NHh/f92CoGsjV9RgvL7s5HF8F1szOcio2I7zK6tFzVZP6etU8jCEgAkL6/KoGXIKeD3g5eo22wnuj2PTeIDYODUfjMVYF1H1Uk/i9vm+F30D0uuo89uIY6611kUMuGVhJtRTO16BeHudqw3uTDmlal6MEKtT3Cc/CUJcIRPhbVOFqjKiG9DG+zJVE1oO/6iUr6iXp52ANuAyoAXnqwtZcBM+g5npgHPM1/1g2IXyWC2pDKEg1adbsms8cVUOFr5qh6mIO91hdolrvZ4QjZjV+lU0IXwlQzZo1adacvr/aU1FfeP/16IJ5AdSvzOp7sznux0ta1xzDJoSvmqUO3ptUxagXRjkqen2dujeF1DEVh0pdzanvfgebEF4P3fMpa5bPZnDf/iJ4YWZR87FHX8/G13GebRa1VqDq3TfHuns9x7IJ4YAHVNEPPWuSuhyzOmo+cva9WswhZyVPXQ6wWlPnVKi6j2EzwoGSzkbXvFkDqzTM//33vl8XQFhLnVevt9bAeVU/UJduVm+f64Fv1dzv4GTCwzaJcDMi3IwINyPCzYhwMyLcjAg3I8LNiHAzItyMCDcjws2IcDMi3IwINyPCzdgRHiyIcCsexiv4nSOVMEr46gAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NExtractData AppendResults="False" ContinueOnError="True" DelayAfter="1" DelayBefore="1" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='Дата' ReferenceName='Дата' ReferenceIdx='0'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' IsDeleted='true' Name='Курс промежуточного клиринга Значение' ReferenceName='Курс промежуточного клиринга Значение' ReferenceIdx='1'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' IsDeleted='true' Name='Курс промежуточного клиринга Время' ReferenceName='Курс промежуточного клиринга Время' ReferenceIdx='2'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='Курс' ReferenceName='Курс основного клиринга Значение' ReferenceIdx='3'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='Время' ReferenceName='Курс основного клиринга Время' ReferenceIdx='4'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Дата' attr='fulltext' /&gt;&lt;column name='Курс промежуточного клиринга Значение' attr='fulltext' /&gt;&lt;column name='Курс промежуточного клиринга Время' attr='fulltext' /&gt;&lt;column name='Курс основного клиринга Значение' attr='fulltext' /&gt;&lt;column name='Курс основного клиринга Время' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="ef5b75b8-83bc-4322-935b-b5f56735305b" Version="V3">
+              <uix:NExtractData.DataTable>
+                <InOutArgument x:TypeArguments="sd:DataTable">
+                  <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">dataTable</CSharpReference>
+                </InOutArgument>
+              </uix:NExtractData.DataTable>
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="663, 886, 600, 545" DesignTimeScaleFactor="1" FriendlyName="'Дата Курс'" FullSelectorArgument="&lt;webctrl parentid='app' tag='TABLE' /&gt;" Guid="2e8d23d0-bfab-4ff0-91b8-03814d25316f" InformativeScreenshot="5a051a15025a99812844cee9e1cdc29d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Индикативные курсы валют — Московская Биржа | Рынки' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NExtractData.Target>
+            </uix:NExtractData>
+            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">currentRange</CSharpReference>
+                </OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">D1</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SaveDataTableToExcel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Modules\\SaveDataTableToExcel.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="pathExcel">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_37">pathExcel</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="dataTable">
+                  <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_36">dataTable</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="currentRange">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">currentRange</CSharpValue>
+                </InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <uix:NNavigateBrowser Action="CloseTab" DelayBefore="1" DisplayName="Navigate Browser - Закрыть вкладку" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_1" Version="V3" />
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1056" BrowserType="Chrome" ContentHash="PwsIeFCfukimQ7fnaEAGUQ" IconBase64="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" InformativeScreenshot="67d7817cb47dc1253b9a3140010f8d72.jpg" Selector="&lt;html app='chrome.exe' title='Московская Биржа' /&gt;" Title="NVIDIA GeForce Overlay">
+          <uix:TargetApp.Url>
+            <InArgument x:TypeArguments="x:String">
+              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28">pathUrlMoex</CSharpValue>
+            </InArgument>
+          </uix:TargetApp.Url>
+        </uix:TargetApp>
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
